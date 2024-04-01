@@ -98,8 +98,8 @@ const Home: NextPage = () => {
                 <div className="max-w-max">
                   <Image
                     className="rounded-md"
-                    src="insert photo link here"
-                    alt="Description of photo"
+                    src="https://cdn.discordapp.com/attachments/1206725510801920070/1208873990198796339/image.png?ex=661c3da3&is=6609c8a3&hm=6dd0261569febf556663c425141888350fe0c609725330c14290e20cd6a10ba2&"
+                    alt="Player Heads from SafeCloud SMP"
                     width={1824}
                     height={1080}
                   />
