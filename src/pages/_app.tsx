@@ -86,7 +86,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           siteName: "SafeCloud SMP",
           images: [
             {
-              url: "https://tristansmp.com/assets/images/Logo.png",
+              url: "https://safecloud.quest/assets/images/Logo.png",
               width: 256,
               height: 256,
               alt: "SafeCloud SMP",

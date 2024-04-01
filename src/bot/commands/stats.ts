@@ -23,13 +23,13 @@ const UserStats: Command = {
   async run(interaction: ChatInputInteraction) {
     const user = interaction.options.getUser("user");
 
-    const tsmpUser = await getSMPUser(user.id).catch(() => null);
+    const smpUser = await getSMPUser(user.id).catch(() => null);
 
-    if (!tsmpUser || !tsmpUser.minecraftUUID) {
+    if (!smpUser || !smpUser.minecraftUUID) {
       return void interaction.reply({ content: "Player not found." });
     }
 
-    const stats = await getUserStats(tsmpUser.minecraftUUID).catch(() => null);
+    const stats = await getUserStats(smpUser.minecraftUUID).catch(() => null);
 
     if (!stats || stats.error) {
       return void interaction.reply({ content: "Stats not found." });
@@ -40,10 +40,10 @@ const UserStats: Command = {
     interaction.reply({
       embeds: [
         {
-          description: `TSMP stats for ${user.username}`,
+          description: `SMP stats for ${user.username}`,
           fields: getStatsEmbedFields(translateSkillNames(stats)),
           thumbnail: {
-            url: `https://crafatar.com/avatars/${tsmpUser.minecraftUUID}?overlay`,
+            url: `https://crafatar.com/avatars/${smpUser.minecraftUUID}?overlay`,
           },
           color: EmbedColor.Invisible,
         },

@@ -25,7 +25,7 @@ export default {
         />
         <meta
           property="og:description"
-          content={frontMatter.description || "TristanSMP Documentation"}
+          content={frontMatter.description || "SafeCloudSMP Documentation"}
         />
       </>
     );

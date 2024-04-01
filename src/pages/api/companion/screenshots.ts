@@ -67,7 +67,7 @@ export default async function handler(
       ],
       embeds: [
         {
-          description: `From <@${discord.id}> via [SMP Companion](https://tristansmp.com/companion)`,
+          description: `From <@${discord.id}> via [SMP Companion](https://safecloud.quest/companion)`,
           color: EmbedColor.Invisible,
           image: {
             url: "attachment://screenshot.png",

@@ -12,7 +12,7 @@ const BlogCard: React.FC<{
       <Link href={`/blog/${post.slug}`} className="h-1/2">
         <Image
           src={
-            post.coverImage || "https://cdn.tristancamejo.com/tsmp/signin.png"
+            post.coverImage || "https://cdn.discordapp.com/attachments/1206725510801920070/1208709987543678989/image.png?ex=661ba4e5&is=66092fe5&hm=110dab69537bfe64a7114aeb0cee66a03934ff5ea1ffa3e0721fc21eb1c58c3f&"
           }
           alt={post.title}
           width={800}

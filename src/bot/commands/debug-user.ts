@@ -11,7 +11,7 @@ import { Emoji } from "../utils/emojis";
 
 const DebugUser: Command = {
   name: "debug-user",
-  description: "reset a tsmp user",
+  description: "reset a smp user",
   options: [
     {
       name: "user",
@@ -31,9 +31,9 @@ const DebugUser: Command = {
     const user = interaction.options.getUser("user");
     const show = interaction.options.getBoolean("show", true) || false;
 
-    const tsmpUser = await getSMPUser(user.id).catch(() => null);
-    const mcProfile = tsmpUser?.minecraftUUID
-      ? await UUIDToProfile(tsmpUser.minecraftUUID).catch(() => null)
+    const smpUser = await getSMPUser(user.id).catch(() => null);
+    const mcProfile = smpUser?.minecraftUUID
+      ? await UUIDToProfile(smpUser.minecraftUUID).catch(() => null)
       : null;
 
     interaction.reply({
@@ -44,23 +44,23 @@ const DebugUser: Command = {
             "**Identity**",
             `${Emoji.Discord} ${user} [${user.username}#${user.discriminator}] (${user.id})`,
             `${Emoji.Minecraft} ${
-              tsmpUser?.minecraftUUID
+              smpUser?.minecraftUUID
                 ? `\`${mcProfile?.name ?? "Failed to resolve"}\` (${
-                    tsmpUser.minecraftUUID
+                    smpUser.minecraftUUID
                   })`
                 : "No linked Minecraft account"
             }`,
-            `${Emoji.TristanSMP} ${
-              tsmpUser ? `Resolved TSMPU from Discord ${tsmpUser.id}` : "No"
+            `${Emoji.SafeCloudSMP} ${
+              smpUser ? `Resolved SMPU from Discord ${smpUser.id}` : "No"
             }`,
             "",
             `**Application status** ${
-              tsmpUser?.application?.status === ApplicationStatus.PendingReview
+              smpUser?.application?.status === ApplicationStatus.PendingReview
                 ? "Pending review"
                 : "Not pending review"
             }`,
-            `${Emoji.TristanSMP} ${
-              tsmpUser?.application?.status === ApplicationStatus.Approved
+            `${Emoji.SafeCloudSMP} ${
+              smpUser?.application?.status === ApplicationStatus.Approved
                 ? "Approved"
                 : "Not approved"
             }`,

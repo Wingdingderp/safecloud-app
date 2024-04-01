@@ -10,7 +10,7 @@ import { createStatusEmbed } from "../utils/embeds";
 
 const ResetUser: Command = {
   name: "reset-user",
-  description: "reset a tsmp user",
+  description: "reset a smp user",
   options: [
     {
       name: "user",
@@ -23,16 +23,16 @@ const ResetUser: Command = {
   async run(interaction: ChatInputInteraction) {
     const user = interaction.options.getUser("user");
 
-    const tsmpUser = await getSMPUser(user.id);
+    const smpUser = await getSMPUser(user.id);
 
-    if (!tsmpUser.application) {
+    if (!smpUser.application) {
       return void interaction.reply({ content: "Application not found." });
     }
 
     const deletedApplication = await prisma.application
       .delete({
         where: {
-          id: tsmpUser.application.id,
+          id: smpUser.application.id,
         },
       })
       .then(() => true)
@@ -41,7 +41,7 @@ const ResetUser: Command = {
     const removeLink = await prisma.user
       .update({
         where: {
-          id: tsmpUser.id,
+          id: smpUser.id,
         },
         data: {
           minecraftUUID: null,
@@ -51,7 +51,7 @@ const ResetUser: Command = {
       .then(() => true)
       .catch(() => false);
 
-    const roleMeta = await updateRoleMeta(tsmpUser)
+    const roleMeta = await updateRoleMeta(smpUser)
       .then(() => true)
       .catch(() => false);
 

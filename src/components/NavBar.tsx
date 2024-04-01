@@ -50,7 +50,7 @@ export const NavBar = () => {
           </ul>
         </div>
         <Link className="btn-ghost btn text-xl normal-case" href="/">
-          TristanSMP
+          SafeCloudSMP
         </Link>
         <ul className="menu menu-horizontal hidden px-1 lg:flex">
           {links.map((link) => (

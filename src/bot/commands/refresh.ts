@@ -20,11 +20,11 @@ const Refresh: Command = {
 
   async run(interaction: ChatInputInteraction) {
     const user = interaction.options.getUser("user");
-    const tsmpUser = await getSMPUser(user.id).catch(() => null);
+    const smpUser = await getSMPUser(user.id).catch(() => null);
 
-    if (!tsmpUser) {
+    if (!smpUser) {
       return void interaction.reply({
-        content: "Failed to find linked TSMP user!",
+        content: "Failed to find linked SMP user!",
         flags: MessageFlags.Ephemeral,
       });
     }

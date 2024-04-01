@@ -5,10 +5,10 @@ import { generateLinkChallenge } from "../../server/lib/linking";
 
 const InDiscordApply: Command = {
   name: "apply",
-  description: "Apply for TristanSMP",
+  description: "Apply for SafeCloudSMP",
 
   async run(interaction: ChatInputInteraction) {
-    const tsmpAccount = await prisma.account.upsert({
+    const smpAccount = await prisma.account.upsert({
       where: {
         provider_providerAccountId: {
           provider: "discord",
@@ -38,9 +38,9 @@ const InDiscordApply: Command = {
       },
     });
 
-    if (!tsmpAccount.user.minecraftUUID) {
+    if (!smpAccount.user.minecraftUUID) {
       return void (await interaction.reply({
-        content: `You have not linked your Minecraft account yet. Please do so by sending \`~link ${tsmpAccount.user.linkChallenge}\` in-game.`,
+        content: `You have not linked your Minecraft account yet. Please do so by sending \`~link ${smpAccount.user.linkChallenge}\` in-game.`,
         flags: MessageFlags.Ephemeral,
       }));
     } else {

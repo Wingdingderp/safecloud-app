@@ -36,7 +36,7 @@ const ApplicationStage: React.FC<{
     <div>
       <div className="flex max-w-4xl flex-col rounded-md bg-slate-700 lg:flex-row">
         <div className="flex flex-col rounded-md p-4 sm:p-6 md:p-8">
-          <h1 className="text-2xl">Apply to TristanSMP</h1>
+          <h1 className="text-2xl">Apply to SafeCloudSMP</h1>
 
           <p className="mt-1 text-sm">
             Please fill out the application below to apply to the server.

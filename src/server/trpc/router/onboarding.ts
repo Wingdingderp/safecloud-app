@@ -111,7 +111,7 @@ export const onboardingRouter = router({
         throw new TRPCError({
           code: "NOT_FOUND",
           message:
-            "Player not found, make sure you're online on tristansmp.com",
+            "Player not found, make sure you're online on safecloud.quest",
         });
       }
 

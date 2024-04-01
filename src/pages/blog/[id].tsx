@@ -175,7 +175,7 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         openGraph={{
           title: parsed.title,
           description: parsed.description,
-          url: `https://tristansmp.com/blog/${parsed.slug}`,
+          url: `https://safecloud.quest/blog/${parsed.slug}`,
           article: {
             publishedTime: parsed.createdAt,
           },

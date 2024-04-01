@@ -34,7 +34,7 @@ const Home: NextPage = () => {
             </div>
             <div className="shadow">
               <Image
-                src="https://cdn.tristancamejo.com/tsmp/signin.png"
+                src="https://cdn.discordapp.com/attachments/1206725510801920070/1208709987543678989/image.png?ex=661ba4e5&is=66092fe5&hm=110dab69537bfe64a7114aeb0cee66a03934ff5ea1ffa3e0721fc21eb1c58c3f&"
                 alt="hero"
                 width={900}
                 height={500}

@@ -7,8 +7,8 @@ export const Footer = () => {
     <footer className="footer items-center bg-neutral p-4 text-neutral-content">
       <div className="grid-flow-col items-center">
         <Image
-          src="/assets/images/TLogo.png"
-          alt="TristanSMP Logo"
+          src="/assets/images/Logo.png"
+          alt="SafeCloudSMP Logo"
           width={50}
           height={50}
           className="rounded-lg fill-current"

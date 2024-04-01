@@ -57,7 +57,7 @@ model User {
   accounts Account[]
   sessions Session[]
 
-  isBotAdmin              Boolean         @default(false) // Able to manage the "tsmp bot" (refresh commands)
+  isBotAdmin              Boolean         @default(false) // Able to manage the "smp bot" (refresh commands)
   canAccessAdminDashboard Boolean         @default(false)
   application             Application?
 

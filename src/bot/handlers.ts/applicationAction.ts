@@ -95,7 +95,7 @@ async function handle(
         content: `<@${discordUser?.id}>`,
         embeds: [
           {
-            description: `Hey, <@${discordUser.id}> a TSMP staff member has reviewed your application.... and has **accepted** you as a member! You should be able to build/break and interact with the world now!`,
+            description: `Hey, <@${discordUser.id}> a SMP staff member has reviewed your application.... and has **accepted** you as a member! You should be able to build/break and interact with the world now!`,
             color: EmbedColor.Invisible,
             fields: [
               {
@@ -121,7 +121,7 @@ async function handle(
         content: `<@${discordUser?.id}>`,
         embeds: [
           {
-            description: `Hey, <@${discordUser.id}> a TSMP staff member has reviewed your application.... and has **denied** you as a member. You're free to give more detail here and convince us to change our mind!`,
+            description: `Hey, <@${discordUser.id}> a SMP staff member has reviewed your application.... and has **denied** you as a member. You're free to give more detail here and convince us to change our mind!`,
             color: EmbedColor.Invisible,
             footer: {
               text: `${interaction.user.tag} | LP: ${syncedUser} | RM: ${syncedRoleMeta}`,

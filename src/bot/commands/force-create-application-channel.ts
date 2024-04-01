@@ -22,16 +22,16 @@ const ForceCreateApplicationChannel: Command = {
   async run(interaction: ChatInputInteraction) {
     const user = interaction.options.getUser("user");
 
-    const tsmpUser = await getSMPUser(user.id);
+    const smpUser = await getSMPUser(user.id);
 
-    if (!tsmpUser.application) {
+    if (!smpUser.application) {
       return void interaction.reply({ content: "Application not found." });
     }
 
     const channel = await createApplicationChannel(
-      tsmpUser.application,
+      smpUser.application,
       user.id,
-      ApplicationSchema.parse(tsmpUser.application.data)
+      ApplicationSchema.parse(smpUser.application.data)
     );
 
     interaction.reply({
