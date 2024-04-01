@@ -11,3 +11,4 @@ The SafeCloudSMP gateway is the core of the SafeCloudSMP service network, linkin
 - [Companion](https://safecloud.quest/companion) API for minecraft client -> gateway communication. 
 - SMP User system, allowing users to link their Minecraft account and Discord account to their SMP account, allowing for effortless moderation and syncing of roles across the Discord and Minecraft server.
 # safecloud-app
+# safecloud-app
