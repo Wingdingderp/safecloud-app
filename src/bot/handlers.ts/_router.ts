@@ -1,4 +1,3 @@
 import ApplicationAction from "./applicationAction";
-import ImageAction from "./imageAction";
 
-export const Handlers = [ApplicationAction, ImageAction].flat();
+export const Handlers = [ApplicationAction].flat();

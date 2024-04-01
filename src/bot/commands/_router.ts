@@ -16,7 +16,6 @@ export const Commands = [
   ChangeLog,
   DebugUser,
   UserStats,
-  Image,
   OnlinePlayers,
   InDiscordApply,
 ];
