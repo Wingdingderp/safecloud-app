@@ -18,7 +18,7 @@ const Home: NextPage = () => {
             <div>
               <h1 className="text-5xl font-bold text-info">
                 SafeCloud SMP for,{" "}
-                <span className="text-primary shadow-purple-600 drop-shadow-2xl">
+                <span className="text-primary shadow-blue-600 drop-shadow-2xl">
                   everyone
                 </span>
                 .
