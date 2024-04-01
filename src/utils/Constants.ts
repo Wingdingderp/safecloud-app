@@ -1,4 +1,4 @@
-export const DiscordInvite = "safecloud.quest/discord";
+export const DiscordInvite = "https://safecloud.quest/discord";
 export const GitHubRepo = "https://github.com/Wingdingderp/safecloud-app";
 export const SingleDiamondB64 =
   "rO0ABXNyABpvcmcuYnVra2l0LnV0aWwuaW8uV3JhcHBlcvJQR+zxEm8FAgABTAADbWFwdAAPTGph\n" +
