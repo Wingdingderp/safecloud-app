@@ -17,7 +17,7 @@ module.exports = {
     themes: [
       {
         smp: {
-          primary: "#E935C1",
+          primary: "#ADD8E6",
           secondary: "#7775D6",
           accent: "#7775D6",
           neutral: "#18111c",
