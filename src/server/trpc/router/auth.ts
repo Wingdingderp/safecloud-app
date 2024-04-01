@@ -12,7 +12,6 @@ export interface ISMPUser {
 }
 
 export interface ISMPLocalUser extends ISMPUser {
-  balance: number;
   isBotAdmin: boolean;
   canAccessAdminDashboard: boolean;
 }
@@ -65,7 +64,6 @@ export async function createLocalUserModel(
     id: user.id,
     name: user.name,
     image: user.image,
-    balance: user.balance,
     isBotAdmin: user.isBotAdmin,
     canAccessAdminDashboard: user.canAccessAdminDashboard,
   };
