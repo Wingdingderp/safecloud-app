@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 import { prisma } from "../../../server/db/client";
 import { syncUser } from "../../../server/lib/linking";
-import { getTSMPUser } from "../../../server/lib/utils";
+import { getSMPUser } from "../../../server/lib/utils";
 import adminMiddleware from "../../../utils/adminMiddleware";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -12,7 +12,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       ? z.string().parse(req.query.discordId as string)
       : z.string().parse(req.body.discordId);
 
-  const user = await getTSMPUser(discordId).catch(() => null);
+  const user = await getSMPUser(discordId).catch(() => null);
 
   if (!user) {
     res.status(404).json({

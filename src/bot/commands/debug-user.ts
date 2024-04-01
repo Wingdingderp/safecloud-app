@@ -5,7 +5,7 @@ import {
 } from "discord-api-types/v10";
 import type { ChatInputInteraction, Command } from "disploy";
 import { UUIDToProfile } from "../../server/lib/minecraft";
-import { getTSMPUser } from "../../server/lib/utils";
+import { getSMPUser } from "../../server/lib/utils";
 import { EmbedColor } from "../utils/embeds";
 import { Emoji } from "../utils/emojis";
 
@@ -31,7 +31,7 @@ const DebugUser: Command = {
     const user = interaction.options.getUser("user");
     const show = interaction.options.getBoolean("show", true) || false;
 
-    const tsmpUser = await getTSMPUser(user.id).catch(() => null);
+    const tsmpUser = await getSMPUser(user.id).catch(() => null);
     const mcProfile = tsmpUser?.minecraftUUID
       ? await UUIDToProfile(tsmpUser.minecraftUUID).catch(() => null)
       : null;

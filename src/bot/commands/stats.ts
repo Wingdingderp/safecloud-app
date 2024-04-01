@@ -5,7 +5,7 @@ import {
   getUserStats,
   translateSkillNames,
 } from "../../server/lib/pipe";
-import { getTSMPUser } from "../../server/lib/utils";
+import { getSMPUser } from "../../server/lib/utils";
 import { EmbedColor } from "../utils/embeds";
 
 const UserStats: Command = {
@@ -23,7 +23,7 @@ const UserStats: Command = {
   async run(interaction: ChatInputInteraction) {
     const user = interaction.options.getUser("user");
 
-    const tsmpUser = await getTSMPUser(user.id).catch(() => null);
+    const tsmpUser = await getSMPUser(user.id).catch(() => null);
 
     if (!tsmpUser || !tsmpUser.minecraftUUID) {
       return void interaction.reply({ content: "Player not found." });

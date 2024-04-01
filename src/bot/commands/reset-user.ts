@@ -5,7 +5,7 @@ import {
 import type { ChatInputInteraction, Command } from "disploy";
 import { prisma } from "../../server/db/client";
 import { updateRoleMeta } from "../../server/lib/discord";
-import { getTSMPUser } from "../../server/lib/utils";
+import { getSMPUser } from "../../server/lib/utils";
 import { createStatusEmbed } from "../utils/embeds";
 
 const ResetUser: Command = {
@@ -23,7 +23,7 @@ const ResetUser: Command = {
   async run(interaction: ChatInputInteraction) {
     const user = interaction.options.getUser("user");
 
-    const tsmpUser = await getTSMPUser(user.id);
+    const tsmpUser = await getSMPUser(user.id);
 
     if (!tsmpUser.application) {
       return void interaction.reply({ content: "Application not found." });

@@ -10,7 +10,7 @@ import {
 import type { ChatInputInteraction, Command } from "disploy";
 import { env } from "../../env/server.mjs";
 import { prisma } from "../../server/db/client";
-import { getTSMPUser } from "../../server/lib/utils";
+import { getSMPUser } from "../../server/lib/utils";
 
 const allowedContentTypes = ["image/png", "image/jpeg", "image/gif"];
 
@@ -39,7 +39,7 @@ const Image: Command = {
       });
     }
 
-    const tsmpUser = await getTSMPUser(interaction.user.id).catch(() => null);
+    const tsmpUser = await getSMPUser(interaction.user.id).catch(() => null);
 
     if (
       !tsmpUser ||

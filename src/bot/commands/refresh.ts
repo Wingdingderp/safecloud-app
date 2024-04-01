@@ -4,7 +4,7 @@ import {
 } from "discord-api-types/v10";
 import type { ChatInputInteraction, Command } from "disploy";
 import { updateRoleMeta } from "../../server/lib/discord";
-import { getTSMPUser } from "../../server/lib/utils";
+import { getSMPUser } from "../../server/lib/utils";
 
 const Refresh: Command = {
   name: "refresh",
@@ -20,7 +20,7 @@ const Refresh: Command = {
 
   async run(interaction: ChatInputInteraction) {
     const user = interaction.options.getUser("user");
-    const tsmpUser = await getTSMPUser(user.id).catch(() => null);
+    const tsmpUser = await getSMPUser(user.id).catch(() => null);
 
     if (!tsmpUser) {
       return void interaction.reply({
