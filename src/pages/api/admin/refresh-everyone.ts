@@ -21,10 +21,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  let totalSyncedSCSMPUsers = 0;
+  let totalSyncedSMPUsers = 0;
   let totalSyncedDiscordUsers = 0;
 
-  let totalFailedSyncedSCSMPUsers = 0;
+  let totalFailedSyncedSMPUsers = 0;
   let totalFailedSyncedDiscordUsers = 0;
 
   for (const user of validUsers) {
@@ -46,9 +46,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   res.status(200).json({
-    totalSyncedTSMPUsers,
+    totalSyncedSMPUsers,
     totalSyncedDiscordUsers,
-    totalFailedSyncedTSMPUsers,
+    totalFailedSyncedSMPUsers,
     totalFailedSyncedDiscordUsers,
   });
 }
