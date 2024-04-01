@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { TSMPUser } from "../../../types/users";
+import type { SMPUser } from "../../../types/users";
 import { UUIDToProfile } from "../../lib/minecraft";
 import { playerMemberProcedure, publicProcedure, router } from "../trpc";
 
