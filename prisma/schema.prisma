@@ -1,0 +1,249 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Example {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+
+  linkChallenge                String?                       @unique
+  minecraftUUID                String?                       @unique
+  minecraftAlternativeAccounts MinecraftAlternativeAccount[]
+
+  accounts Account[]
+  sessions Session[]
+
+  balance       Int             @default(0)
+  itemsOnMarket AuctionedItem[] @relation("AuctionedItemSeller")
+  boughtItems   AuctionedItem[] @relation("AuctionedItemBuyer")
+
+  isBotAdmin              Boolean         @default(false) // Able to manage the "tsmp bot" (refresh commands)
+  canAccessAdminDashboard Boolean         @default(false)
+  application             Application?
+  Image                   Image[]
+  AuctionedItem           AuctionedItem[]
+  signShops               SignShop[]
+
+  supporterUntil DateTime? // If this isn't null, the user is a supporter until this date
+  blogBooks      BlogBook[]
+  oneTimeTokens  OneTimeToken[]
+}
+
+model MinecraftAlternativeAccount {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  minecraftUUID String
+
+  @@unique([userId, minecraftUUID])
+}
+
+enum ApplicationStatus {
+  PendingReview
+  Approved
+  Denied
+}
+
+model Application {
+  id String @id @default(cuid())
+
+  data     Json
+  status   ApplicationStatus @default(PendingReview)
+  reviewer String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// AuctionedItem status
+enum AuctionStatus {
+  ACTIVE // Currently up for auction
+  SOLD // Delivered in-game
+  IN_TRANSIT // Ready for delivery in-game via command
+}
+
+// Individual items that are up for auction on a specfic item type
+model AuctionedItem {
+  id     String        @id @default(cuid())
+  price  Int
+  status AuctionStatus @default(ACTIVE)
+
+  seller   User   @relation(fields: [sellerId], references: [id], name: "AuctionedItemSeller")
+  sellerId String
+
+  buyer   User?   @relation(fields: [buyerId], references: [id], name: "AuctionedItemBuyer")
+  buyerId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  type    ItemType? @relation(fields: [typeb64], references: [b64key])
+  typeb64 String?
+  User    User?     @relation(fields: [userId], references: [id])
+  userId  String?
+
+  @@index([sellerId])
+  @@index([typeb64])
+  @@index([userId])
+  @@index([buyerId])
+}
+
+// The item type that is being auctioned
+// There can be multiple auctioned items of the same type from different or the same sellers
+model ItemType {
+  id           String @id @default(cuid())
+  namespacedId String
+
+  base64 String @db.Text
+  b64key String @unique
+
+  metadata Json
+
+  name String
+
+  stock AuctionedItem[] // Items that are currently up for auction
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  signShops SignShop[]
+}
+
+model SignShop {
+  id String @id @default(cuid())
+
+  location String @unique // (x,y,z,world) - Location of the sign
+
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String
+
+  item    ItemType? @relation(fields: [itemb64], references: [b64key])
+  itemb64 String?
+
+  @@index([ownerId])
+  @@index([itemb64])
+}
+
+enum ReviewStatus {
+  Pending
+  Approved
+  Denied
+}
+
+model Image {
+  id String @id @default(cuid())
+
+  creator   User   @relation(fields: [creatorId], references: [id])
+  creatorId String
+
+  url String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reviewStatus ReviewStatus @default(Pending)
+  reviewer     String?
+
+  @@index([creatorId])
+}
+
+model BlogBook {
+  id String @id @default(cuid())
+
+  title String
+
+  content String @db.Text
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([authorId])
+}
+
+model CacheKV {
+  key   String @id
+  value String @db.Text
+
+  createdAt DateTime @default(now())
+}
+
+model OneTimeToken {
+  id String @id @default(cuid())
+
+  token String @unique
+
+  createdAt DateTime @default(now())
+  expires   DateTime
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  @@index([userId])
+}
+
+model SpawnLocation {
+  id String @id @default(cuid())
+
+  location String @unique // `x,y,z,world`
+
+  name        String
+  b64ItemIcon String @db.Text
+}
