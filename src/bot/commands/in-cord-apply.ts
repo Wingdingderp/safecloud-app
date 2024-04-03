@@ -5,50 +5,10 @@ import { generateLinkChallenge } from "../../server/lib/linking";
 
 const InDiscordApply: Command = {
   name: "apply",
-  description: "Apply for SafeCloudSMP",
+  description: "How to apply for SafeCloudSMP",
 
   async run(interaction: ChatInputInteraction) {
-    const smpAccount = await prisma.account.upsert({
-      where: {
-        provider_providerAccountId: {
-          provider: "discord",
-          providerAccountId: interaction.user.id,
-        },
-      },
-      create: {
-        provider: "discord",
-        providerAccountId: interaction.user.id,
-        type: "discord-bot",
-        user: {
-          create: {
-            name: interaction.user.username,
-            linkChallenge: generateLinkChallenge(),
-          },
-        },
-      },
-      update: {
-        user: {
-          update: {
-            linkChallenge: generateLinkChallenge(),
-          },
-        },
-      },
-      include: {
-        user: true,
-      },
-    });
-
-    if (!smpAccount.user.minecraftUUID) {
-      return void (await interaction.reply({
-        content: `You have not linked your Minecraft account yet. Please do so by sending \`~link ${smpAccount.user.linkChallenge}\` in-game.`,
-        flags: MessageFlags.Ephemeral,
-      }));
-    } else {
-      return void (await interaction.reply({
-        content: `not implemented, yet`,
-        flags: MessageFlags.Ephemeral,
-      }));
-    }
+    interaction.reply({ content: "To apply for the SMP, join the server at safecloud.quest and follow the instructions given to link your account. If you need more help, create a ticket!", flags: MessageFlags.Ephemeral });
   },
 };
 
