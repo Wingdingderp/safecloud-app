@@ -12,7 +12,7 @@ const OnlinePlayers: Command = {
 
     if (!onlinePlayers) {
       return void interaction.reply({
-        content: "Failed to fetch players",
+        content: "Failed to fetch players, or nobody is online at the moment.",
         flags: MessageFlags.Ephemeral,
       });
     }
