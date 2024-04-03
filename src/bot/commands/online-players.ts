@@ -42,7 +42,6 @@ const OnlinePlayers: Command = {
                 a.length > b.length ? a : b
               )}\` has the longest name.`,
             "",
-            `• There are blank entities in the server.`,
             "**Nerd Info:**",
             `• Base MCV: \`${elytra.minecraftVersion}\``,
             `• Paper Version: \`${elytra.bukkitVersion}\``,
