@@ -31,7 +31,7 @@ const config = {
   redirects: async () => [
     {
       source: "/discord",
-      destination: "https://discord.gg/yzNjMhzw8s",
+      destination: "https://discord.gg/Cys82j4zvV",
       permanent: true,
     },
     {
@@ -40,8 +40,8 @@ const config = {
       permanent: true,
     },
     {
-      source: "/supporter",
-      destination: "/docs/supporter",
+      source: "/map",
+      destination: "b01971e3-91e3-407e-87a6-bf7c526e3ee8.cfargotunnel.com",
       permanent: true,
     },
   ],
