@@ -41,8 +41,8 @@ const config = {
     },
     {
       source: "/map",
-      destination: "https://map.safecloud.quest",
-      permanent: true,
+      destination: "http://132.145.128.206:8100",
+      permanent: false,
     },
   ],
 };

@@ -26,7 +26,7 @@ const links: { name: string; href: string; newTab: boolean }[] = [
   {
     name: "Map",
     href: "/map",
-    newTab: true,
+    newTab: false,
   },
 ];
 
