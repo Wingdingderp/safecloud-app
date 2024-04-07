@@ -23,6 +23,11 @@ const links: { name: string; href: string; newTab: boolean }[] = [
     href: "/blog",
     newTab: false,
   },
+  {
+    name: "Map",
+    href: "/map",
+    newTab: true,
+  },
 ];
 
 export const NavBar = () => {
