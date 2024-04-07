@@ -41,7 +41,7 @@ const config = {
     },
     {
       source: "/map",
-      destination: "b01971e3-91e3-407e-87a6-bf7c526e3ee8.cfargotunnel.com",
+      destination: "https://b01971e3-91e3-407e-87a6-bf7c526e3ee8.cfargotunnel.com",
       permanent: true,
     },
   ],
