@@ -17,11 +17,11 @@ const Home: NextPage = () => {
           <div className="hero-content flex-col lg:flex-row">
             <div>
               <h1 className="text-5xl font-bold text-info">
-                SafeCloud SMP for,{" "}
+                Safe Cloud SMP, {" "}
                 <span className="text-primary shadow-blue-600 drop-shadow-2xl">
-                  everyone
+                an SMP for everyone
                 </span>
-                .
+                !
               </h1>
               <p className="my-5 py-6 text-lg">
                 SafeCloud SMP is a semi-vanilla Minecraft server for Java and Bedrock hosted
