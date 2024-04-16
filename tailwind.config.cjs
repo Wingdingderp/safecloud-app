@@ -11,30 +11,22 @@ module.exports = {
       },
     },
   },
-  darkMode: "dark",
+  darkMode: "class",
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
         smp: {
-          "primary": "#0284c7",
-          
-          "secondary": "#4ade80",
-                   
-          "accent": "#9ca3af",
-                   
-          "neutral": "#1f2937",
-                   
-          "base-100": "#374151",
-                   
-          "info": "#008ff3",
-                   
-          "success": "#00c900",
-                   
-          "warning": "#ff9400",
-                   
-          "error": "#f1002f",
-          },
+          "primary": "#df00ff",
+          "secondary": "#02ab00",
+          "accent": "#007fff",
+          "neutral": "#17101e",
+          "base-100": "#182729",
+          "info": "#004aff",
+          "success": "#00af59",
+          "warning": "#b16e00",
+          "error": "#ff8a9a",
+        },
       },
     ],
   },
