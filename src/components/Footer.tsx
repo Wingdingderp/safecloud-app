@@ -13,7 +13,7 @@ export const Footer = () => {
           height={50}
           className="rounded-lg fill-current"
         />
-        <p>SafeCloud SMP by Wing and August</p>
+        <p>SafeCloud SMP by Wing</p>
       </div>
       <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <Link href={DiscordInvite}>

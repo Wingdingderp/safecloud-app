@@ -9,7 +9,7 @@ export default {
   },
   docsRepositoryBase: "https://github.com/Wingdingderp/safecloud-app/blob",
   footer: {
-    text: <span>SafeCloudSMP by Wing and August, for the community.</span>,
+    text: <span>SafeCloudSMP by Wing, for the community.</span>,
   },
   head: () => {
     const { frontMatter } = useConfig();

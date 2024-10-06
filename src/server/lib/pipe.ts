@@ -51,7 +51,12 @@ const skillNameMap: Record<keyof APIStats, string> = {
 
 export async function getUserStats(uuid: string): Promise<GetStatsJSONResult> {
   const stats = await fetch(
-    `https://pipe.safecloud.quest/players/uuid/${chunkUUID(uuid)}/mcmmo`
+    `http://132.145.128.206:25567/players/${chunkUUID(uuid)}`,
+    {
+      headers: {
+        'secret': 'literallyanything',
+      },
+    }
   );
 
   if (stats.status !== 200) {
