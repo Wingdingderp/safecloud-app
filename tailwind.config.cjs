@@ -18,23 +18,15 @@ module.exports = {
       {
         smp: {
           "primary": "#0284c7",
-          
           "secondary": "#4ade80",
-                   
           "accent": "#9ca3af",
-                   
           "neutral": "#1f2937",
-                   
           "base-100": "#374151",
-                   
           "info": "#008ff3",
-                   
           "success": "#00c900",
-                   
           "warning": "#ff9400",
-                   
           "error": "#f1002f",
-          },
+        },
       },
     ],
   },

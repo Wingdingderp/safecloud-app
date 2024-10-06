@@ -17,9 +17,9 @@ const Home: NextPage = () => {
           <div className="hero-content flex-col lg:flex-row">
             <div>
               <h1 className="text-5xl font-bold text-info">
-                Safe Cloud SMP, {" "}
+                SafeCloud SMP, {" "}
                 <span className="text-primary shadow-blue-600 drop-shadow-2xl">
-                an SMP for everyone
+                  an SMP for everyone
                 </span>
                 !
               </h1>
