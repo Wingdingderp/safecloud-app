@@ -84,7 +84,9 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     },
   });
 
-  const first = response.results[0];
+  const first = response.results.find(
+    (result) => result.object === "page"
+  ) as Exclude<typeof response.results[0], { object: "database" }>;
 
   if (!first) {
     return {

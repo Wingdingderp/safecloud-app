@@ -182,6 +182,7 @@ export async function GetBlogPosts(
 
   const posts = (await Promise.all(
     response.results
+      .filter(isFullPage)
       .map(async (page) => {
         const parsed = await ParseBlogPost(page);
         if (!parsed) return null;
