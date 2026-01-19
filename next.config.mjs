@@ -14,18 +14,14 @@ const withNextra = nextra({
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  swcMinify: true,
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
+  turbopack: {},
   images: {
-    domains: [
-      "cdn.discordapp.com",
-      "cdn.tristancamejo.com",
-      "www.notion.so",
-      "notion.so",
-      "s3.us-west-2.amazonaws.com",
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.discordapp.com" },
+      { protocol: "https", hostname: "cdn.tristancamejo.com" },
+      { protocol: "https", hostname: "www.notion.so" },
+      { protocol: "https", hostname: "notion.so" },
+      { protocol: "https", hostname: "s3.us-west-2.amazonaws.com" },
     ],
   },
   redirects: async () => [

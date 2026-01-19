@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import type { IBlogPost } from "../../server/lib/blog/utils";
 import Authors from "./Authors";

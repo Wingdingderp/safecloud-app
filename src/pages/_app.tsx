@@ -30,7 +30,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
-  const layoutWrapper = (Comp: JSX.Element) => {
+  const layoutWrapper = (Comp: React.ReactElement) => {
     return (
       <>
         <NavBar />

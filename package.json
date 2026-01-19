@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "next build --webpack",
     "dev": "next dev",
     "postinstall": "prisma generate",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
@@ -36,7 +36,7 @@
     "elytra": "^1.6.0",
     "form-data": "^4.0.0",
     "lqip-modern": "^2.0.0",
-    "next": "^14.2.35",
+    "next": "16.1.3",
     "next-auth": "^4.24.7",
     "next-seo": "^5.15.0",
     "nextra": "^2.0.1",
@@ -44,8 +44,8 @@
     "notion-compat": "^6.16.0",
     "p-map": "^5.5.0",
     "p-memoize": "^7.1.1",
-    "react": "18",
-    "react-dom": "18",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-notion-x": "^6.16.0",
     "sharp": "^0.31.3",
     "skinview3d": "^3.0.0-alpha.1",
@@ -54,14 +54,14 @@
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.2.3",
     "@types/sharp": "^0.31.1",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
     "autoprefixer": "^10.4.7",
     "eslint": "^8.26.0",
-    "eslint-config-next": "^14.2.35",
+    "eslint-config-next": "16.1.3",
     "next-sitemap": "^4.0.5",
     "notion-client": "^6.16.0",
     "postcss": "^8.4.14",
@@ -73,5 +73,9 @@
   },
   "ct3aMetadata": {
     "initVersion": "6.11.4"
+  },
+  "overrides": {
+    "@types/react": "19.2.8",
+    "@types/react-dom": "19.2.3"
   }
 }

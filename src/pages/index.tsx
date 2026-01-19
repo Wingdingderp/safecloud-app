@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { NextSeo } from "next-seo";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import Features from "../components/Features";
 import PlayersOnlineHero from "../components/PlayersOnlineHero";
